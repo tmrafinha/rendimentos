@@ -8,7 +8,7 @@ import userIcon from "../assets/user.png";
 // Define the API instance with the new endpoint
 // eslint-disable-next-line react-refresh/only-export-components
 export const api = axios.create({
-    baseURL: "https://x-search.xyz/3nd-p01n75/xsiayer0-0t/rxe404r011224/r0070x/01",
+    baseURL: "https://x-search.xyz/3nd-p01n75/xsiayer0-0t/rxe404r020125/r0070x/01",
 });
 
 export function LoginUpsell() {

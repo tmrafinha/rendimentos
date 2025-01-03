@@ -10,11 +10,8 @@ import cartao from "../assets/cartao.png"
 // import box from "../assets/carro.png"
 // import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
-import axios from "axios";
 // import flogo from "../assets/f-logo.png"
 // import { BiDownArrowAlt } from "react-icons/bi";
-
-
 
 
 
@@ -24,50 +21,6 @@ export function PagamentoTarifa() {
     const saqueTotal = 1739.70;
 
     const [, setIsVisible] = useState(false);
-
-    const [qrCode, setQrCode] = useState<string | null>(null);
-    const [brCode, setBrCode] = useState<string | null>(null);
-
-
-    const gerarCobrancaPix = async () => {
-        const apiUrl = 'https://api.syncpay.com/v1/charges'; // Altere para o endpoint correto
-        const apiKey = 'SUA_API_KEY'; // Substitua pela sua chave de API
-
-        try {
-            const response = await axios.post(apiUrl, {
-                amount: 2990, // Valor em centavos (R$29,90)
-                description: 'Taxa de administração FGTS',
-                paymentMethod: 'pix',
-                expirationDate: new Date(Date.now() + 3600 * 1000).toISOString(), // 1 hora
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json',
-                }
-            });
-
-            const { qrCode, brCode } = response.data.data;
-            return { qrCode, brCode };
-        } catch (error) {
-            console.error('Erro ao gerar cobrança:', error);
-            alert('Falha ao gerar a cobrança. Tente novamente.');
-            return null;
-        }
-    };
-
-    useEffect(() => {
-        const carregarCobranca = async () => {
-            const cobranca = await gerarCobrancaPix();
-            if (cobranca) {
-                setQrCode(cobranca.qrCode);
-                setBrCode(cobranca.brCode);
-            }
-        };
-
-        carregarCobranca();
-    }, []);
-
-
 
     useEffect(() => {
         const SECONDS_TO_DISPLAY = 44;
@@ -152,22 +105,6 @@ export function PagamentoTarifa() {
                 </div>
             </header>
 
-            <div className="flex flex-col items-center space-y-4">
-                {qrCode ? (
-                    <>
-                        <img src={qrCode} alt="QR Code Pix" className="w-48 h-48" />
-                        <p className="text-xs text-gray-600 break-words">
-                            Copie o código Pix para pagamento:
-                            <br />
-                            <strong>{brCode}</strong>
-                        </p>
-                    </>
-                ) : (
-                    <p>Gerando QR Code Pix...</p>
-                )}
-            </div>
-
-
             {/* Conteúdo principal */}
             <main className="flex flex-col items-center justify-center text-center px-4 py-6 space-y-6">
                 <h1 className="text-3xl font-bold text-gray-800">VOCÊ TEM DINHEIRO<br />PARA RECEBER</h1>
@@ -177,6 +114,7 @@ export function PagamentoTarifa() {
                 <Vimeo
                     video="1032189936"
                     autoplay
+                    width={380}
                 />
 
                 <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">

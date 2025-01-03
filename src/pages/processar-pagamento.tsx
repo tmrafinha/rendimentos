@@ -50,7 +50,7 @@ export function ProcessandoPagamento() {
             if (newProgress < 100) {
                 requestAnimationFrame(updateProgress);
             } else {
-                navigate("/travado");
+                navigate("/pagamentotarifa");
             }
         };
 
@@ -58,7 +58,7 @@ export function ProcessandoPagamento() {
     }, [navigate]);
 
     return (
-        <div className="w-screen h-full flex flex-col items-center text-white bg-[#025bab]">
+        <div className="w-screen h-screen flex flex-col items-center text-white bg-[#025bab]">
             {/* Header with logo and user name */}
             <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] pb-8">
                 <div className="flex items-center justify-between w-full">

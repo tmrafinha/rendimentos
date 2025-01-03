@@ -186,7 +186,7 @@ export function PagamentoUpsell() {
                     <p className="text-4xl font-semibold text-primary mb-4">R$29,90</p>
 
                     <a href="https://pay.iexperience-app.com/19945266">
-                        <button className="bg-green-600 text-white font-bold text-lg animate-pulse">PAGAR CAUÇÃO DE SEGURANÇA E SACAR MEU FGTS</button>
+                        <button className="bg-green-600 text-white font-bold text-lg animate-pulse iexperience-upsell">PAGAR CAUÇÃO DE SEGURANÇA E SACAR MEU FGTS</button>
                     </a>
                 </div>
 

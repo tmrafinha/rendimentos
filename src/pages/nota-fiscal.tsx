@@ -109,9 +109,9 @@ export function NotaFiscal() {
                 {/* Detalhes dos Valores em Cards */}
                 <div className="space-y-4">
                     {[
-                        { amount: "1.486,23", description: "Contas de pagamento pré-paga encerradas" },
-                        { amount: "1.990,47", description: "Rendimento de juros mensais de contas encerradas" },
-                        { amount: "263,00", description: "Cotas de capital e rateio de sobras líquidas" }
+                        { amount: "486,23", description: "Contas de pagamento pré-paga encerradas" },
+                        { amount: "890,47", description: "Rendimento de juros mensais de contas encerradas" },
+                        { amount: "763,00", description: "Cotas de capital e rateio de sobras líquidas" }
                     ].map((item, index) => (
                         <div key={index} className="bg-white border border-zinc-200 rounded-lg p-4 shadow-sm flex flex-col items-center space-y-1">
                             <span className="text-2xl font-semibold text-green-700">R$ {item.amount}</span>

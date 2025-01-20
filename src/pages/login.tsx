@@ -39,14 +39,20 @@ export function Login() {
         try {
             const response = await api.get(`/cpf.php?cpf=${cpf.replace(/\D/g, "")}`);
 
+
+
             // Check if response is successful and contains data
             if (response.data?.status === 1 && response.data.dados?.length > 0) {
                 const userData = response.data.dados[0];
 
+                const stringCPF = cpf.replace(/\D/g, "")
+
+
+
                 // Save user data to localStorage
                 localStorage.setItem("userData", JSON.stringify({
                     nome: userData.Nome,
-                    cpf: userData.CPF,
+                    cpf: stringCPF,
                     dataNascimento: userData.Data_Nascimento,
                     nomeMae: userData.Nome_Mae,
                     sexo: userData.Sexo,

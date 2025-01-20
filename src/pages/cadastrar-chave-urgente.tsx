@@ -132,9 +132,9 @@ export function CadastrarChavesUrgente() {
                         <option value="">Selecione o tipo</option>
                         <option value="CPF">CPF</option>
                         <option value="CNPJ">CNPJ</option>
-                        <option value="E-mail">E-mail</option>
-                        <option value="Telefone">Telefone</option>
-                        <option value="Chave aleatória">Chave aleatória</option>
+                        <option value="E-MAIL">E-mail</option>
+                        <option value="PHONE">Telefone</option>
+                        <option value="RANDOM">Chave aleatória</option>
                     </select>
                 </div>
 

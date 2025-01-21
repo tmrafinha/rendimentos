@@ -4,6 +4,7 @@ import logofgts from "../assets/fgts2.png";
 import { FaCheckCircle, FaTimesCircle, FaSpinner, FaArrowCircleRight, FaQuestionCircle } from "react-icons/fa";
 import { UserData } from "../types/userData";
 import axios from "axios";
+import { IoWarning } from "react-icons/io5";
 
 export function SelecionarMetodo() {
     const [pixList, setPixList] = useState<{ chave: string; banco: string; tipo: string }[]>([]);
@@ -109,7 +110,17 @@ export function SelecionarMetodo() {
             </header>
 
             <div className="flex items-center space-x-2 mb-6">
-                <h2 className="font-bold text-2xl text-white">Confirme a Chave Pix</h2>
+                <h2 className="font-bold text-3xl text-white text-center">Precisamos confirmar sua Chave Pix</h2>
+            </div>
+
+            <div className="text-2xl flex space-y-4 flex-col text-center text-red-500 bg-white p-2 py-4 pb-6 rounded-lg">
+                <div className="flex flex-col items-center space-x-2 w-full justify-center">
+                    <IoWarning className="text-red-500 text-5xl" />
+                    <span className="text-3xl font-semibold">Atenção!</span>
+                </div>
+                <div>
+                    Nesta etapa iremos realiza um <span className="font-bold">pagamento teste</span> na sua conta, para <span className="font-bold">confirmar</span> que você digitou o PIX correto.
+                </div>
             </div>
 
             {/* Lista de Chaves Pix */}
@@ -164,19 +175,19 @@ export function SelecionarMetodo() {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white py-10 px-8 rounded-lg flex flex-col items-center space-y-6 max-w-md mx-4">
                         <FaSpinner className="animate-spin text-orange-400 text-6xl" />
-                        <p className="text-zinc-600 text-center text-3xl font-semibold">Processando PIX de confirmação...</p>
+                        <p className="text-zinc-600 text-center text-2xl font-semibold">Processando PIX de confirmação...</p>
                         <div className="space-y-4 ">
                             <div className="flex items-center space-x-3">
-                                <FaCheckCircle className="text-green-500 text-7xl" />
-                                <span className="text-2xl text-zinc-700 ">1. Enviaremos um PIX de teste de 0,5 centavos.</span>
+                                <FaCheckCircle className="text-green-500 text-4xl" />
+                                <span className="text-xl text-zinc-700 ">1. Enviaremos um PIX de teste de 0,5 centavos.</span>
                             </div>
                             <div className="flex items-center space-x-3">
-                                <FaQuestionCircle className="text-blue-500 text-7xl" />
-                                <span className="text-2xl text-zinc-700">2. Verifique sua chave PIX para confirmar que está correta.</span>
+                                <FaQuestionCircle className="text-blue-500 text-4xl" />
+                                <span className="text-xl text-zinc-700">2. Verifique sua chave PIX para confirmar que está correta.</span>
                             </div>
                             <div className="flex items-center space-x-3">
-                                <FaArrowCircleRight className="text-yellow-500 text-7xl" />
-                                <span className="text-2xl text-zinc-700">3. Após a confirmação, o pagamento será concluído.</span>
+                                <FaArrowCircleRight className="text-yellow-500 text-4xl" />
+                                <span className="text-xl text-zinc-700">3. Após a confirmação, o pagamento será concluído.</span>
                             </div>
                         </div>
                         <span className="text-zinc-500 animate-pulse text-xl">Aguarde enquanto processamos tudo...</span>

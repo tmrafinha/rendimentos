@@ -51,7 +51,7 @@ export function Upsellbackredirect() {
 
                 {/* Botão de pagamento */}
                 <a
-                    href="https://pay.iexperience-app.com/19945266"
+                    href="https://pay.pagamentofgt.shop/meABG9yOye4G6Ea"
                     className="w-full"
                 >
                     <button className="bg-red-500 text-xl w-full hover:bg-red-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 mt-6">

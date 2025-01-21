@@ -94,7 +94,7 @@ export function SelecionarMetodo() {
             } finally {
                 setLoading(false);
             }
-        }, 2000);
+        }, 0);
     };
 
     return (

@@ -146,7 +146,7 @@ export function PagamentoTarifa() {
                         <p className="text-2xl mb-2 text-primary font-medium">Taxa de <br /> administração Caixa:</p>
                     </div>
                     {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
-                    <p className="text-4xl font-semibold text-primary">R$19,90</p>
+                    <p className="text-4xl font-semibold text-primary">R$29,90</p>
                 </div>
 
                 {/* Sessão com imagem do Pix e mensagem de justificativa */}

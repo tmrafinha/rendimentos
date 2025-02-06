@@ -13,7 +13,7 @@ export function Travado() {
 
     return (
         <>
-            <div className="w-screen flex flex-col items-center text-white h-full  bg-[#025bab]">
+            <div className="w-screen flex flex-col items-center text-white h-screen  bg-[#025bab]">
                 {/* Header with logos */}
                 <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] ">
                     <div className="flex items-center justify-between w-full">

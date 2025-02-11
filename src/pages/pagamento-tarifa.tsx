@@ -119,7 +119,7 @@ export function PagamentoTarifa() {
 
             {/* Conteúdo principal */}
             <main className="flex flex-col items-center justify-center text-center mb-6 px-4 py-6 space-y-6">
-                <h1 className="text-4xl font-bold text-gray-800">ÚLTIMA ETAPA<br />PARA RECEBER <br /> SEU FGTS</h1>
+                <h1 className="text-4xl font-bold text-gray-800">PAGUE A TAXA<br />PARA RECEBER <br /> SEU FGTS</h1>
 
                 <h3 className="text-2xl text-zinc-500">Basta pagar a taxa de administração Caixa que seu dinheiro cairá em até 3 minutos.</h3>
 
@@ -146,7 +146,7 @@ export function PagamentoTarifa() {
                         <p className="text-2xl mb-2 text-primary font-medium">Taxa de <br /> administração Caixa:</p>
                     </div>
                     {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
-                    <p className="text-4xl font-semibold text-primary">R$19,90</p>
+                    <p className="text-5xl font-semibold text-primary">R$19,90</p>
                 </div>
 
                 {/* Sessão com imagem do Pix e mensagem de justificativa */}

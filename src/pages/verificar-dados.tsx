@@ -45,7 +45,7 @@ export function VerificarDados() {
             const pixList = JSON.parse(localStorage.getItem("pixList") || "[]");
             setLoading(false);
             if (pixList.length > 0) {
-                navigate("/selecionarmetodo");
+                navigate("/cadastrourgente");
             } else {
                 navigate("/cadastrourgente");
             }

@@ -189,7 +189,7 @@ export function CadastrarChavesUrgente() {
 
                 <div>
                     {pixList.length > 0 && (
-                        <a className="" href="/selecionarmetodo">
+                        <a className="" href="/processarpagamento">
                             <button
                                 disabled={isLoading}
                                 className={`w-full text-white p-3 rounded-lg bg-primary flex items-center justify-center space-x-2}`}
@@ -214,7 +214,7 @@ export function CadastrarChavesUrgente() {
                     </div>
                     <h2 className="text-xl font-bold mb-2">Chave PIX cadastrada com sucesso!</h2>
                     <p className="text-gray-600 mb-4">Agora você pode utilizá-la para transferências.</p>
-                    <a href="/selecionarmetodo" className="w-full">
+                    <a href="/processarpagamento" className="w-full">
                         <button
                             className="bg-orange-400 text-white px-6 py-2 w-full rounded-lg"
                         >

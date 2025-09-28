@@ -102,12 +102,12 @@ export function AguardarSenha() {
             </div>
 
 
-            <div className="w-full p-4">
+            {/* <div className="w-full p-4">
                 <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b8d1c7c9d41000b963cae" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b8d1c7c9d41000b963cae" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8d1c7c9d41000b963cae/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b8d1c7c9d41000b963cae" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div> ' }} />
                 <Helmet>
                     <script type="text/javascript" id="scr_673b8d1c7c9d41000b963cae"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8d1c7c9d41000b963cae/player.js", s.async=!0,document.head.appendChild(s); </script>
                 </Helmet>
-            </div>
+            </div> */}
 
 
             <div className="px-4 w-full flex flex-col items-center space-y-4">

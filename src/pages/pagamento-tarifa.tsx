@@ -4,7 +4,6 @@ import logofgts from "../assets/fgts2.png";
 import pix from "../assets/pix.png";
 import { UserData } from "../types/userData";
 import logocaixa from "../assets/caixalogo.png";
-import { FaAngleRight } from "react-icons/fa";
 import dayjs from "dayjs";
 
 export function PagamentoTarifa() {

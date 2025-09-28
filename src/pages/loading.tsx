@@ -3,7 +3,6 @@ import logo from "../assets/caixa.webp";
 import { UserData } from "../types/userData";
 import dayjs from "dayjs";
 import { FaSpinner } from "react-icons/fa";
-import { Helmet } from "react-helmet";
 
 export function Loading() {
     const [progress, setProgress] = useState(0);

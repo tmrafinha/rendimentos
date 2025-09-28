@@ -6,7 +6,6 @@ import logofgts from "../assets/fgts2.png";
 import { FaAngleRight, FaSpinner } from "react-icons/fa";
 import { UserData } from "../types/userData";
 import dayjs from "dayjs";
-import { Helmet } from "react-helmet";
 
 // Definição para evitar erro de tipagem com `smartplayer`
 declare global {

